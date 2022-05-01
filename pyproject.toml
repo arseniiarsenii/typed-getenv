@@ -5,7 +5,7 @@ description = "A simple module for environment variable based configuration"
 authors = ["arseniiarsenii <arseniivelichko2@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.5"
+python = "^3.7"
 
 [tool.poetry.dev-dependencies]
 black = "^22.3.0"
