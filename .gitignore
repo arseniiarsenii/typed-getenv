@@ -1,0 +1,6 @@
+# pytest/mypy cache
+__pycache__
+.pytest_cache
+
+# Poetry deps
+poetry.lock
