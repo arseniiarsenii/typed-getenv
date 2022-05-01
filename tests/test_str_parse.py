@@ -1,6 +1,8 @@
 import os
 
-from . import getenv
+import pytest
+
+from . import VariableUnsetError, getenv
 
 VAR_NAME = "TEST_STR"
 
@@ -11,7 +13,15 @@ def test_parse_valid_string() -> None:
     assert getenv(VAR_NAME) == value
 
 
-def test_parse_string_with_default() -> None:
+def test_parse_optional_string_with_default() -> None:
     default = "bar"
     os.environ.clear()
-    assert getenv(VAR_NAME, default) == default
+    assert getenv(VAR_NAME, default, optional=True) == default
+
+
+def test_parse_mandatory_string_with_default() -> None:
+    default = "bar"
+    os.environ.clear()
+
+    with pytest.raises(VariableUnsetError):
+        getenv(VAR_NAME, default, optional=False)

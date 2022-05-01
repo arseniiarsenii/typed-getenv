@@ -30,13 +30,16 @@ CONVERTERS: tp.Dict[tp.Union[tp.Type], tp.Callable[[str], tp.Any]] = {
 
 
 def getenv(
-    env_name: str, default: VarType = None, var_type: tp.Type = tp.Optional[str]
+    env_name: str,
+    default: VarType = None,
+    var_type: tp.Type = tp.Optional[str],
+    optional: bool = False,
 ) -> tp.Optional[VarType]:
     """
     A wrapper over standard os.getenv() that automatically
     converts provided strings into values of the desired type.
 
-    Same interface as os.getenv(), but with additional var_type argument.
+    Same interface as os.getenv(), but with additional var_type and optional arguments.
     """
     if var_type not in CONVERTERS:
         raise UnprocessableValueError(
@@ -46,7 +49,7 @@ def getenv(
     value = os.getenv(env_name, "NOT_FOUND")
 
     if value == "NOT_FOUND":
-        if default is not None or var_type == tp.Optional[str]:
+        if optional:
             return default
         else:
             raise VariableUnsetError(

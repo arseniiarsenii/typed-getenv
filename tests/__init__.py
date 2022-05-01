@@ -1,1 +1,6 @@
-from typed_getenv import getenv, TypeMismatchError, UnprocessableValueError, VariableUnsetError
+from typed_getenv import (
+    getenv,
+    TypeMismatchError,
+    UnprocessableValueError,
+    VariableUnsetError,
+)
