@@ -32,6 +32,7 @@ CONVERTERS: tp.Dict[tp.Union[tp.Type], tp.Callable[[str], tp.Any]] = {
 def getenv(
     env_name: str,
     default: VarType = None,
+    *,
     var_type: tp.Type = tp.Optional[str],
     optional: bool = False,
 ) -> tp.Optional[VarType]:
@@ -53,7 +54,7 @@ def getenv(
             return default
         else:
             raise VariableUnsetError(
-                f'Environment variable "{env_name}" has not been set and no default value has been provided.'
+                f'Environment variable "{env_name}" has not been set and is marked as mandatory.'
             )
 
     try:
