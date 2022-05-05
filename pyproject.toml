@@ -3,6 +3,9 @@ name = "typed-getenv"
 version = "0.1.0"
 description = "A simple module for environment variable based configuration"
 authors = ["arseniiarsenii <arseniivelichko2@gmail.com>"]
+readme = "README.md"
+homepage = "https://github.com/arseniiarsenii/typed-getenv/"
+license = "Apache 2.0"
 
 [tool.poetry.dependencies]
 python = "^3.7"
