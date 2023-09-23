@@ -13,7 +13,7 @@ have access to the host environment to build containers yourself with filled con
 files into the container. The most logical option then is to provide a prebuilt container image and a set of environment
 variables that define it's behaviour.
 
-**Why not use standard `os.getev()`?** Getenv is mostly for storing strings, however configurations often need to
+**Why not use standard `os.getenv()`?** Getenv is mostly for storing strings, however configurations often need to
 include integers, floats and logical values. Getenv would require some very trivial custom logic to be rewritten over
 and over again to convert strings into the desired types of values and validate them. This library provides this code.
 
